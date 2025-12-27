@@ -10,7 +10,11 @@
 html {
   scroll-behavior: smooth;
 }
-
+@media (min-width: 1024px) and (max-width: 1440px) {
+  html {
+    font-size: 14px; /* Scales everything down slightly */
+  }
+}
 @theme {
   /* Brand Palette */
   --color-rust-50: #fff1f0;
