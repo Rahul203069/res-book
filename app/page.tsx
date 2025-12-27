@@ -255,53 +255,77 @@ TypeScript
       </section>
 
       {/* --- 7. RESERVATION FORM --- */}
-      <section id="reserve" className="bg-neutral-950 border-t border-white/5">
-        <div className="grid lg:grid-cols-12 min-h-[700px]">
-          <div className="relative lg:col-span-5 hidden lg:block overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80" className="absolute inset-0 w-full h-full object-cover opacity-50 transition-transform duration-[20s] hover:scale-110" alt="Interior" />
-            <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/80 to-neutral-950"></div>
-            <div className="absolute inset-0 p-16 flex flex-col justify-between z-10">
+      <section id="reserve" className="bg-neutral-950 border-t border-white/5 relative overflow-hidden">
+        <div className="grid lg:grid-cols-12 min-h-fit lg:min-h-[650px]">
+          
+          {/* Left Side: Atmospheric Info (Hidden when zoomed in or on mobile) */}
+          <div className="relative lg:col-span-5 hidden lg:flex flex-col justify-between p-12 xl:p-16 border-r border-white/5 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80" 
+              className="absolute inset-0 w-full h-full object-cover opacity-30 transition-transform duration-[30s] hover:scale-110" 
+              alt="Interior" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/20 via-neutral-950/60 to-neutral-950"></div>
+            
+            <div className="relative z-10">
+              <span className="text-rust-500 text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">Reservations</span>
+              <h2 className="text-4xl xl:text-5xl font-serif italic text-white mb-6 leading-tight">Secure your <br/> table.</h2>
+              <p className="text-neutral-400 text-xs xl:text-sm max-w-xs leading-relaxed">Join us for an evening of culinary excellence. Tables are released 30 days in advance at midnight EST.</p>
+            </div>
+
+            <div className="relative z-10 space-y-6">
               <div>
-                <span className="text-rust-500 text-[10px] font-bold uppercase tracking-widest block mb-6">Reservations</span>
-                <h2 className="text-5xl font-serif italic text-white mb-6">Secure your table.</h2>
-                <p className="text-neutral-400 text-sm max-w-xs leading-relaxed">Join us for an evening of culinary excellence. Tables released 30 days in advance.</p>
+                <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-1">Private Dining</p>
+                <Link href="mailto:events@scarlet.com" className="text-neutral-500 text-xs hover:text-rust-400 transition-colors">events@scarlet.com</Link>
               </div>
-              <div className="space-y-8">
-                <div>
-                  <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-2">Private Dining</p>
-                  <Link href="#" className="text-neutral-400 text-xs hover:text-rust-400 transition-colors">events@scarlet.com</Link>
-                </div>
-                <div>
-                  <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-2">Location</p>
-                  <p className="text-neutral-400 text-xs leading-relaxed">128 West Broadway,<br />New York, NY 10013</p>
-                </div>
+              <div>
+                <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-1">Location</p>
+                <p className="text-neutral-500 text-xs">128 West Broadway, NY 10013</p>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-7 p-8 md:p-24 flex items-center bg-neutral-950">
-            <motion.div {...fadeInUp} className="w-full max-w-lg mx-auto">
-              <form className="space-y-12">
-                <div className="grid grid-cols-2 gap-10">
+          {/* Right Side: The Form Column */}
+          <div className="lg:col-span-7 flex items-center justify-center p-6 py-16 md:p-12 xl:p-24 bg-neutral-950">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              whileInView={{ opacity: 1 }} 
+              viewport={{ once: true }}
+              className="w-full max-w-lg"
+            >
+              {/* COMPONENT HEADING: Always visible on Mobile/Zoom, Hidden on Large Desktop */}
+              <header className="mb-12 lg:hidden">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-8 h-px bg-rust-600"></span>
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-rust-500 font-bold">Booking</span>
+                </div>
+                <h2 className="text-4xl font-serif italic text-white mb-4">Secure your table.</h2>
+                <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">Please select your preferred date and party size to view available seating.</p>
+              </header>
+
+              <form className="space-y-10 lg:space-y-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
                   <FormInput label="Date" placeholder="Select Date" icon={<Calendar size={16} />} />
-                  <div className="relative group">
-                    <label className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-500 group-focus-within:text-rust-500 transition-colors">Guests</label>
-                    <select className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white appearance-none cursor-pointer transition-colors">
+                  
+                  <div className="relative group border-b border-neutral-800 pb-1 focus-within:border-white transition-colors">
+                    <label className="text-[10px] uppercase tracking-widest text-neutral-500 group-focus-within:text-rust-500 transition-colors">Guests</label>
+                    <select className="w-full bg-transparent py-2 text-white text-sm focus:outline-none appearance-none cursor-pointer">
                       <option className="bg-neutral-900">2 Guests</option>
+                      <option className="bg-neutral-900">3 Guests</option>
                       <option className="bg-neutral-900">4 Guests</option>
                       <option className="bg-neutral-900">6+ Guests</option>
                     </select>
-                    <ChevronDown size={14} className="absolute right-0 top-4 text-neutral-600" />
+                    <ChevronDown size={14} className="absolute right-0 bottom-3 text-neutral-600 pointer-events-none" />
                   </div>
                 </div>
 
                 <div className="space-y-5">
-                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 block">Available Times</label>
-                  <div className="flex flex-wrap gap-3">
-                    {['17:30', '18:15', '19:30', '20:45'].map((time) => (
-                      <label key={time} className="cursor-pointer group">
+                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 block">Seating Times</label>
+                  <div className="flex flex-wrap gap-2 md:gap-3">
+                    {['17:30', '18:15', '19:30', '20:45', '21:30'].map((time) => (
+                      <label key={time} className="cursor-pointer">
                         <input type="radio" name="time" className="peer sr-only" />
-                        <span className="inline-block px-5 py-3 border border-neutral-800 text-neutral-400 text-[10px] uppercase tracking-widest rounded-sm transition-all duration-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white hover:border-neutral-600">
+                        <span className="inline-block px-4 md:px-5 py-2 md:py-3 border border-neutral-800 text-neutral-400 text-[10px] uppercase tracking-widest rounded-sm transition-all duration-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white hover:border-neutral-600">
                           {time}
                         </span>
                       </label>
@@ -309,26 +333,21 @@ TypeScript
                   </div>
                 </div>
 
-                <div className="space-y-8 pt-4">
-                  <input type="text" placeholder="Full Name" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
-                  <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
-                  <input type="tel" placeholder="Phone Number" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
+                <div className="space-y-6">
+                  <input type="text" placeholder="Full Name" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-700" />
+                  <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-700" />
                 </div>
 
-                <div className="pt-8">
+                <div className="pt-6">
                   <button type="submit" className="group w-full bg-rust-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] py-5 hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-3">
                     Confirm Reservation <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                   </button>
-                  <p className="text-center text-[9px] text-neutral-600 mt-6 uppercase tracking-widest leading-relaxed">
-                    By booking, you agree to our 24-hour cancellation policy.
-                  </p>
                 </div>
               </form>
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* --- 8. FOOTER --- */}
       <footer className="bg-neutral-950 border-t border-white/5 pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6">
