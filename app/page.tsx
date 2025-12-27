@@ -204,142 +204,153 @@ export default function ScarletLanding() {
         </div>
       </section>
 
-      {/* --- 6. REFINED CRITICAL PERSPECTIVES (REDUCED SIZE) --- */}
-<section id="reviews" className="py-20 lg:py-24 bg-neutral-950 relative overflow-hidden">
-  {/* Subtle Background Accents */}
-  <div className="absolute top-0 left-0 w-full h-full bg-noise opacity-[0.02] pointer-events-none" />
-  <div className="absolute -top-12 -right-12 w-64 h-64 bg-rust-900/10 rounded-full blur-[100px]" />
-  
-  <div className="max-w-6xl mx-auto px-6 relative z-10">
-    {/* Scaled Down Header */}
-    <div className="mb-12 lg:mb-16">
-      <motion.div {...fadeInUp} className="flex items-center gap-3 mb-3">
-        <span className="w-8 h-px bg-rust-600" />
-        <span className="text-[9px] uppercase tracking-[0.3em] text-rust-500 font-bold">Acclaim</span>
-      </motion.div>
-      <motion.h2 {...fadeInUp} className="text-3xl md:text-5xl font-light text-white tracking-tight leading-none">
-        Critical <span className="font-serif italic text-neutral-500 underline decoration-rust-900/30 underline-offset-4">Perspectives</span>
-      </motion.h2>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      {/* Featured Review - Compacted */}
-      <motion.div {...fadeInUp} className="lg:col-span-7 group relative">
-        <div className="relative bg-neutral-900/30 backdrop-blur-sm border border-white/5 p-8 md:p-12 overflow-hidden">
-          {/* Smaller Quote Icon */}
-          <Quote className="absolute -top-2 -right-2 w-20 h-20 text-rust-600/5 group-hover:text-rust-600/10 transition-colors" />
-          
-          <div className="flex gap-1 mb-6">
-            {[...Array(5)].map((_, i) => <Star key={i} size={12} className="text-rust-500 fill-rust-500" />)}
-          </div>
-
-          <blockquote className="text-2xl md:text-3xl text-white font-serif italic leading-snug mb-8">
-            "Scarlet isn't just a restaurant; it is a theatre of fire and flavor. The striploin <span className="text-rust-500">redefines</span> what a steak can be."
-          </blockquote>
-
-          <div className="flex items-center gap-4 border-t border-white/5 pt-8">
-            <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center font-black text-xs rotate-[-5deg] shrink-0">
-              NYT
-            </div>
-            <div>
-              <p className="text-white text-xs font-bold uppercase tracking-widest">The New York Times</p>
-              <p className="text-neutral-500 text-[10px] uppercase tracking-tighter mt-0.5">Top Pick 2024</p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Secondary Reviews - Tighter Stack */}
-      <div className="lg:col-span-5 flex flex-col gap-6 lg:pt-12">
-        <ReviewSmallCard 
-          icon={<Award size={18} />} 
-          author="Michelin Guide" 
-          quote="Impeccable service and a menu that respects seasonality with bold strokes." 
-        />
-        <ReviewSmallCard 
-          icon={<Wine size={18} />} 
-          author="Bon Appétit" 
-          quote="The wine pairing was nothing short of revelatory. An essential destination." 
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* --- 7. RESERVATION FORM --- */}
-      <section id="reserve" className="bg-neutral-950 border-t border-white/5">
-        <div className="grid lg:grid-cols-12 min-h-[700px]">
-          <div className="relative lg:col-span-5 hidden lg:block overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80" className="absolute inset-0 w-full h-full object-cover opacity-50 transition-transform duration-[20s] hover:scale-110" alt="Interior" />
-            <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/80 to-neutral-950"></div>
-            <div className="absolute inset-0 p-16 flex flex-col justify-between z-10">
-              <div>
-                <span className="text-rust-500 text-[10px] font-bold uppercase tracking-widest block mb-6">Reservations</span>
-                <h2 className="text-5xl font-serif italic text-white mb-6">Secure your table.</h2>
-                <p className="text-neutral-400 text-sm max-w-xs leading-relaxed">Join us for an evening of culinary excellence. Tables released 30 days in advance.</p>
-              </div>
-              <div className="space-y-8">
-                <div>
-                  <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-2">Private Dining</p>
-                  <Link href="#" className="text-neutral-400 text-xs hover:text-rust-400 transition-colors">events@scarlet.com</Link>
-                </div>
-                <div>
-                  <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-2">Location</p>
-                  <p className="text-neutral-400 text-xs leading-relaxed">128 West Broadway,<br />New York, NY 10013</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 p-8 md:p-24 flex items-center bg-neutral-950">
-            <motion.div {...fadeInUp} className="w-full max-w-lg mx-auto">
-              <form className="space-y-12">
-                <div className="grid grid-cols-2 gap-10">
-                  <FormInput label="Date" placeholder="Select Date" icon={<Calendar size={16} />} />
-                  <div className="relative group">
-                    <label className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-500 group-focus-within:text-rust-500 transition-colors">Guests</label>
-                    <select className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white appearance-none cursor-pointer transition-colors">
-                      <option className="bg-neutral-900">2 Guests</option>
-                      <option className="bg-neutral-900">4 Guests</option>
-                      <option className="bg-neutral-900">6+ Guests</option>
-                    </select>
-                    <ChevronDown size={14} className="absolute right-0 top-4 text-neutral-600" />
-                  </div>
-                </div>
-
-                <div className="space-y-5">
-                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 block">Available Times</label>
-                  <div className="flex flex-wrap gap-3">
-                    {['17:30', '18:15', '19:30', '20:45'].map((time) => (
-                      <label key={time} className="cursor-pointer group">
-                        <input type="radio" name="time" className="peer sr-only" />
-                        <span className="inline-block px-5 py-3 border border-neutral-800 text-neutral-400 text-[10px] uppercase tracking-widest rounded-sm transition-all duration-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white hover:border-neutral-600">
-                          {time}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-8 pt-4">
-                  <input type="text" placeholder="Full Name" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
-                  <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
-                  <input type="tel" placeholder="Phone Number" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
-                </div>
-
-                <div className="pt-8">
-                  <button type="submit" className="group w-full bg-rust-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] py-5 hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-3">
-                    Confirm Reservation <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                  </button>
-                  <p className="text-center text-[9px] text-neutral-600 mt-6 uppercase tracking-widest leading-relaxed">
-                    By booking, you agree to our 24-hour cancellation policy.
-                  </p>
-                </div>
-              </form>
+      {/* --- 6. IMPROVED CRITICAL PERSPECTIVES (EDITORIAL DESIGN) --- */}
+      <section id="reviews" className="py-32 bg-neutral-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-noise opacity-[0.02] pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-rust-900/10 rounded-full blur-[120px]" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="mb-20">
+            <motion.div {...fadeInUp} className="flex items-center gap-3 mb-4">
+              <span className="w-12 h-px bg-rust-600" />
+              <span className="text-[10px] uppercase tracking-[0.3em] text-rust-500 font-bold">The Acclaim</span>
             </motion.div>
+            <motion.h2 {...fadeInUp} className="text-4xl md:text-7xl font-light text-white tracking-tight leading-none">
+              Critical <span className="font-serif italic text-neutral-500 underline decoration-rust-900/30 underline-offset-8">Perspectives</span>
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Featured Review */}
+            <motion.div {...fadeInUp} className="lg:col-span-7 group relative">
+              <div className="relative bg-neutral-900/40 backdrop-blur-md border border-white/10 p-10 md:p-16 overflow-hidden">
+                <Quote className="absolute -top-4 -right-4 w-32 h-32 text-rust-600/10" />
+                <div className="flex gap-1 mb-8">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-rust-500 fill-rust-500" />)}
+                </div>
+                <blockquote className="text-3xl md:text-5xl text-white font-serif italic leading-[1.2] mb-12">
+                  "Scarlet isn't just a restaurant; it is a theatre of fire and flavor. The striploin <span className="text-rust-500">redefines</span> what a steak can be."
+                </blockquote>
+                <div className="flex items-center gap-6 border-t border-white/5 pt-10">
+                  <div className="w-14 h-14 bg-white text-black rounded-full flex items-center justify-center font-black text-sm rotate-[-5deg]">NYT</div>
+                  <div>
+                    <p className="text-white text-sm font-bold uppercase tracking-widest">The New York Times</p>
+                    <p className="text-neutral-500 text-xs uppercase mt-1">Top Pick 2024</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Secondary Reviews Stack */}
+            <div className="lg:col-span-5 flex flex-col gap-8 lg:pt-20">
+              <ReviewSmallCard icon={<Award size={20} />} author="Michelin Guide" quote="Impeccable service and a menu that respects seasonality with bold strokes." />
+              <ReviewSmallCard icon={<Wine size={20} />} author="Bon Appétit" quote="The wine pairing was nothing short of revelatory. An essential destination." />
+            </div>
           </div>
         </div>
       </section>
+
+    {/* --- 7. RESERVATION FORM (REFINED WITH FADING TRANSITION) --- */}
+<section id="reserve" className="bg-neutral-950 border-t border-white/5 relative overflow-hidden">
+  <div className="grid lg:grid-cols-12 min-h-fit lg:min-h-[700px]">
+    
+    {/* Left Side: Atmospheric Info with Fading Transition */}
+    <div className="relative lg:col-span-5 hidden lg:flex flex-col justify-between p-12 xl:p-16 overflow-hidden">
+      {/* Background Image */}
+      <img 
+        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" 
+        className="absolute inset-0 w-full h-full object-cover opacity-50 transition-transform duration-[30s] hover:scale-110" 
+        alt="Interior" 
+      />
+      
+      {/* THE FADE OVERLAYS */}
+      {/* 1. Base Darkening */}
+      <div className="absolute inset-0 bg-neutral-950/20"></div>
+      
+      {/* 2. THE MAIN FADE: Transitions from transparent to the exact background color (#0a0a0a) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neutral-950/40 to-neutral-950"></div>
+      
+      {/* 3. Bottom Fade: Smooths the transition into the footer area */}
+      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <span className="text-rust-500 text-[10px] font-bold uppercase tracking-[0.3em] block mb-6">Reservations</span>
+        <h2 className="text-4xl xl:text-5xl font-serif italic text-white mb-6 leading-tight">Secure your <br/> table.</h2>
+        <p className="text-neutral-400 text-sm max-w-xs leading-relaxed">Join us for an evening of culinary excellence. Tables released 30 days in advance.</p>
+      </div>
+
+      <div className="relative z-10 space-y-8">
+        <div>
+          <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-2">Private Dining</p>
+          <Link href="mailto:events@scarlet.com" className="text-neutral-400 text-xs hover:text-rust-400 transition-colors">events@scarlet.com</Link>
+        </div>
+        <div>
+          <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-2">Location</p>
+          <p className="text-neutral-400 text-xs leading-relaxed">128 West Broadway,<br />New York, NY 10013</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Right Side: The Form Column (Seamlessly Blended) */}
+    <div className="lg:col-span-7 p-8 md:p-16 xl:p-24 flex items-center bg-neutral-950 relative">
+      <motion.div 
+        initial={{ opacity: 0, x: 20 }} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="w-full max-w-lg mx-auto relative z-10"
+      >
+        {/* MOBILE ONLY HEADING - appears when the left side hides */}
+        <header className="mb-12 lg:hidden">
+          <span className="text-rust-500 text-[10px] font-bold uppercase tracking-widest block mb-2">Reservations</span>
+          <h2 className="text-4xl font-serif italic text-white mb-4">Secure your table.</h2>
+        </header>
+
+        <form className="space-y-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <FormInput label="Date" placeholder="Select Date" icon={<Calendar size={16} />} />
+            <div className="relative group border-b border-neutral-800 focus-within:border-white transition-colors">
+              <label className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-500 group-focus-within:text-rust-500">Guests</label>
+              <select className="w-full bg-transparent py-3 text-white text-sm focus:outline-none appearance-none cursor-pointer">
+                <option className="bg-neutral-900">2 Guests</option>
+                <option className="bg-neutral-900">4 Guests</option>
+                <option className="bg-neutral-900">6+ Guests</option>
+              </select>
+              <ChevronDown size={14} className="absolute right-0 top-4 text-neutral-600 pointer-events-none" />
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            <label className="text-[10px] uppercase tracking-widest text-neutral-500 block">Available Times</label>
+            <div className="flex flex-wrap gap-3">
+              {['17:30', '18:15', '19:30', '20:45'].map((time) => (
+                <label key={time} className="cursor-pointer group">
+                  <input type="radio" name="time" className="peer sr-only" />
+                  <span className="inline-block px-5 py-3 border border-neutral-800 text-neutral-400 text-[10px] uppercase tracking-widest rounded-sm transition-all duration-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white hover:border-neutral-600">
+                    {time}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-8 pt-4">
+            <input type="text" placeholder="Full Name" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
+            <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
+            <input type="tel" placeholder="Phone Number" className="w-full bg-transparent border-b border-neutral-800 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder-neutral-600" />
+          </div>
+
+          <div className="pt-8">
+            <button type="submit" className="group w-full bg-rust-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] py-5 hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-3">
+              Confirm Reservation <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+            </button>
+          </div>
+        </form>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* --- 8. FOOTER --- */}
       <footer className="bg-neutral-950 border-t border-white/5 pt-24 pb-12">
